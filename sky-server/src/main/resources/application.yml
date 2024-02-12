@@ -33,6 +33,6 @@ sky:
     # Set the key to be used for JWT signature encryption
     admin-secret-key: itcast
     # setTheJWTExpirationTime
-    admin-ttl: 7200000
+    admin-ttl: 72000000
     # setTheNameOfTheTokenPassedByTheFrontend
     admin-token-name: token

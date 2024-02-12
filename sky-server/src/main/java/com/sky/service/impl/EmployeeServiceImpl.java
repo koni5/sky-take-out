@@ -65,6 +65,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
+     * 新增员工
+     *
      * @param employeeDTO
      */
     @Override
@@ -84,6 +86,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
+     * 员工分页查询
+     *
      * @param employeePageQueryDTO
      * @return
      */
@@ -94,5 +98,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         Page<Employee> page = employeeMapper.pageQuery(employeePageQueryDTO);
         PageResult pageResult = new PageResult(page.getTotal(), page.getResult());
         return pageResult;
+    }
+
+    /**
+     * 启用或禁用员工账号
+     *
+     * @param status
+     * @param id
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        Employee employee = Employee.builder().status(status).id(id).build();
+        employeeMapper.update(employee);
     }
 }
