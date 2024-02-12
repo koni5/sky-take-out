@@ -77,11 +77,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置账号的其余属性值
         employee.setStatus(StatusConstant.ENABLE);
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-        Long currentId = BaseContext.getCurrentId();
-        employee.setCreateUser(currentId);
-        employee.setUpdateUser(currentId);
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        Long currentId = BaseContext.getCurrentId();
+//        employee.setCreateUser(currentId);
+//        employee.setUpdateUser(currentId);
         employeeMapper.insert(employee);
     }
 
@@ -127,14 +127,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 编辑员工信息
+     *
      * @param employeeDTO
      */
     @Override
     public void updateEmployeeInfo(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
-        BeanUtils.copyProperties(employeeDTO,employee);
-        employee.setUpdateUser(BaseContext.getCurrentId());
-        employee.setUpdateTime(LocalDateTime.now());
+        BeanUtils.copyProperties(employeeDTO, employee);
+       /* employee.setUpdateUser(BaseContext.getCurrentId());
+        employee.setUpdateTime(LocalDateTime.now());*/
         employeeMapper.update(employee);
     }
 }
