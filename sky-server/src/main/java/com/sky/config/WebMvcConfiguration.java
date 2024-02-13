@@ -36,6 +36,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      *
      * @param registry
      */
+    //拦截器的注册生效
+    @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         log.info("开始注册自定义拦截器...");
         registry.addInterceptor(jwtTokenAdminInterceptor)
@@ -90,7 +92,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         //为消息转换器进行将对象转换为json数据格式的配置
         converter.setObjectMapper(new JacksonObjectMapper());
         //将自己的消息转化器加入容器并设置为最高优先级
-        converters.add(0,converter);
+        converters.add(0, converter);
 
     }
 }
