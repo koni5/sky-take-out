@@ -56,8 +56,23 @@ public class SetmealController {
     @GetMapping("/{id}")
     @ApiOperation("根据id查询套餐")
     public Result<SetmealVO> querySetmeal(@PathVariable Long id) {
+        log.info("根据id查询套餐:{}", id);
         SetmealVO setmealVO = setmealService.querySetmeal(id);
         return Result.success(setmealVO);
+    }
+
+    /**
+     * 修改套餐信息
+     *
+     * @param setmealDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改套餐信息")
+    public Result update(@RequestBody SetmealDTO setmealDTO) {
+        log.info("修改套餐信息:{}", setmealDTO);
+        setmealService.update(setmealDTO);
+        return Result.success();
     }
 
 }
