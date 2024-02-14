@@ -23,5 +23,8 @@
         </where>
         order by s.create_time desc
     </select>
+    <select id="querySetmeal" resultType="com.sky.vo.SetmealVO">
+        select * from setmeal where id=#{id}
+    </select>
 
 </mapper>

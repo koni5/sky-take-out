@@ -20,4 +20,11 @@ public interface SetmealDishMapper {
      * @param setmealDishes
      */
     void save(List<SetmealDish> setmealDishes);
+
+    /**
+     * 根据套餐id来查套餐下的菜品信息
+     * @param setmealId
+     * @return
+     */
+    List<SetmealDish> queryDishes(Long setmealId);
 }

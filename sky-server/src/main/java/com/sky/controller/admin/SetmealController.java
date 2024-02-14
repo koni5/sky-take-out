@@ -57,7 +57,7 @@ public class SetmealController {
     @ApiOperation("根据id查询套餐")
     public Result<SetmealVO> querySetmeal(@PathVariable Long id) {
         SetmealVO setmealVO = setmealService.querySetmeal(id);
-        return Result.success();
+        return Result.success(setmealVO);
     }
 
 }
