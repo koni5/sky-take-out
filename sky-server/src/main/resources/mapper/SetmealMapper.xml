@@ -24,10 +24,24 @@
                 name=#{name},
             </if>
             <if test="price!=null">
-                price=#{price}
+                price=#{price},
+            </if>
+            <if test="updateTime!=null">
+                update_time=#{updateTime},
+            </if>
+            <if test="updateUser!=null">
+                update_user=#{updateUser},
+            </if>
+            <if test="status!=null">
+                status=#{status}
             </if>
         </set>
         where id=#{id}
+    </update>
+    <update id="updateStatus">
+        update setmeal
+        set status=#{status}
+        where id = #{id}
     </update>
     <select id="pageQuery" resultType="com.sky.vo.SetmealVO">
         select *,c.name as categoryName from setmeal s inner join category c on s.category_id=c.id

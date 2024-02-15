@@ -42,6 +42,7 @@ public interface SetmealMapper {
 
     /**
      * 根据id查询套餐
+     *
      * @param id
      * @return
      */
@@ -49,8 +50,17 @@ public interface SetmealMapper {
 
     /**
      * 修改套餐表信息
+     *
      * @param setmeal
      */
     @AutoFill(value = OperationType.UPDATE)
     void update(Setmeal setmeal);
+
+    /**
+     * 修改套餐起售或停售
+     *
+     * @param setmeal
+     */
+    @AutoFill(value = OperationType.UPDATE)
+    void updateStatus(Setmeal setmeal);
 }

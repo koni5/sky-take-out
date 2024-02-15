@@ -106,4 +106,18 @@ public class DishController {
         List<DishVO> dishVOList = dishService.queryDish(categoryId);
         return Result.success(dishVOList);
     }
+
+    /**
+     * 根据菜品id起售或停售菜品
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("status/{status}")
+    @ApiOperation("根据菜品id起售或停售菜品")
+    public Result startOrStop(@PathVariable Integer status,Long id){
+        log.info("根据菜品id起售或停售菜品:{},{}",status,id);
+        dishService.startOrStop(status,id);
+        return Result.success();
+    }
 }
