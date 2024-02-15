@@ -118,9 +118,10 @@ public class SetmealServiceImpl implements SetmealService {
                 throw new SetmealEnableFailedException(MessageConstant.SETMEAL_ENABLE_FAILED);
             }
         }
-        Setmeal setmeal = new Setmeal();
-        setmeal.setStatus(status);
-        setmeal.setId(id);
+        Setmeal setmeal = Setmeal.builder()
+                .id(id)
+                .status(status)
+                .build();
         setmealMapper.updateStatus(setmeal);
     }
 }
