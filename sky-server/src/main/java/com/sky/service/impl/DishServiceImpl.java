@@ -158,6 +158,7 @@ public class DishServiceImpl implements DishService {
      * @param status
      * @param id
      */
+    @Transactional
     @Override
     public void startOrStop(Integer status, Long id) {
         Dish dish = new Dish();

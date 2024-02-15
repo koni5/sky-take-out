@@ -40,9 +40,19 @@
     </update>
     <update id="updateStatus">
         update setmeal
-        set status=#{status}
+        set status=#{status},
+            update_time=#{updateTime},
+            update_user=#{updateUser}
         where id = #{id}
     </update>
+    <delete id="deleteBatch">
+        delete
+        from setmeal
+        where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
     <select id="pageQuery" resultType="com.sky.vo.SetmealVO">
         select *,c.name as categoryName from setmeal s inner join category c on s.category_id=c.id
         <where>

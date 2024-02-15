@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import com.github.pagehelper.Page;
 
+import java.util.List;
+
 @Mapper
 public interface SetmealMapper {
 
@@ -63,4 +65,20 @@ public interface SetmealMapper {
      */
     @AutoFill(value = OperationType.UPDATE)
     void updateStatus(Setmeal setmeal);
+
+    /**
+     * 批量删除套餐
+     *
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
+
+    /**
+     * 根据套餐id查询套餐信息
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from setmeal where id=#{id}")
+    Setmeal getById(Long id);
 }

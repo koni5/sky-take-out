@@ -6,6 +6,8 @@ import com.sky.result.PageResult;
 import com.sky.vo.SetmealVO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 public interface SetmealService {
     /**
      * 新增套餐
@@ -41,4 +43,10 @@ public interface SetmealService {
      * @param id
      */
     void updateStatus(Integer status, Long id);
+
+    /**
+     * 批量删除套餐
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
 }
