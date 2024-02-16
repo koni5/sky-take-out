@@ -61,4 +61,18 @@
         where s.setmeal_id = #{setmealId}
           and d.status = 0
     </select>
+    <select id="queryDish" resultType="com.sky.entity.Dish">
+        select * from dish
+        <where>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="categoryId!=null">
+                and category_id=#{categoryId}
+            </if>
+        </where>
+    </select>
 </mapper>
