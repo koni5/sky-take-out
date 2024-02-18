@@ -14,6 +14,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.Cipher;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -79,5 +80,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         cart.setUserId(BaseContext.getCurrentId());
         List<ShoppingCart> cartList = shoppingCartMapper.list(cart);
         return cartList;
+    }
+
+    /**
+     * 清空购物车
+     */
+    @Override
+    public void cleanCart() {
+        Long currentId = BaseContext.getCurrentId();
+        shoppingCartMapper.deleteByUserId(currentId);
     }
 }
