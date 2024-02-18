@@ -137,7 +137,8 @@ public class DishController {
         cleanCache("dish_*");
         return Result.success();
     }
-    private void cleanCache(String pattern){
+
+    private void cleanCache(String pattern) {
         Set keys = redisTemplate.keys(pattern);
         redisTemplate.delete(keys);
     }
