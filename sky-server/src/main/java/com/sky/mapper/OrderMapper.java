@@ -24,4 +24,10 @@ public interface OrderMapper {
      */
     @Select("select * from orders where id=#{id}")
     Orders getById(Long id);
+
+    /**
+     * 更新订单信息
+     * @param orders
+     */
+    void update(Orders orders);
 }
