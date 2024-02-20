@@ -51,3 +51,7 @@ sky:
   wechat:
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
+  shop:
+    address: 重庆市渝北区龙塔街道渝鲁大道670号
+  baidu:
+    ak: 6cNwKEUNLa6pehii3jCNdLLEg8kOlAHh
